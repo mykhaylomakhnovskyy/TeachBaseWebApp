@@ -13,8 +13,13 @@
   <% end %>
 </p>
 <p>
-  <strong>Amount of places:</strong>
-  <%= @carriage.places_amount %>
+  <strong>Amount of upper places:</strong>
+  <%= @carriage.upper_places_amount %>
+</p>
+
+<p>
+  <strong>Amount of down places:</strong>
+  <%= @carriage.down_places_amount %>
 </p>
 
 <%= link_to 'Edit', edit_carriage_path(@carriage) %> |
