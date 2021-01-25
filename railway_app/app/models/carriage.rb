@@ -6,6 +6,8 @@ class Carriage < ApplicationRecord
 
   scope :coupe, -> { where(type: 'CoupeCarriage') }
   scope :economy, -> { where(type: 'EconomyCarriage') }
+  scope :sleeper, -> { where(type: 'SleeperCarriage') }
+  scope :seater, -> { where(type: 'SeaterCarriage') }
   protected
 
   def set_number

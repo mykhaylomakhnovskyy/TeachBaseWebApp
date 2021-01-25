@@ -15,7 +15,7 @@
 <p>
   <strong>Carriages:</strong>
   <% @train.carriages.each do |carriage|  %>
-      <%= link_to "#{carriage.number}", carriage_path %>
+      <%= link_to "#{carriage.number}", carriage_path(carriage) %>
     <% end %>
 </p>
 
