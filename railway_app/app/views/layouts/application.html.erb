@@ -7,6 +7,12 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= link_to 'Home', welcome_index_path%>
+    <%= link_to 'List of stations', railway_stations_path%>
+    <%= link_to 'List of trains', trains_path %>
+    <%= link_to 'List of routes', routes_path %>
+    <%= link_to 'List of carriages', carriages_path %>
+
   </head>
   <body>
     <%= yield %>

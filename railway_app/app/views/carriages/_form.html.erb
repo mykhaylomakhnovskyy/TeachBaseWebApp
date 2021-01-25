@@ -1,25 +1,44 @@
 <%= form_for(@carriage) do |form| %>
   <%= render 'common/errors', resource: @carriage %>
   <div class="field">
-    <%= form.label :carriage_type %>
-    <%= form.text_field :carriage_type %>
+    <%= form.label :type %>
+    <%= form.text_field :type %>
   </div>
-
   <div class="field">
     <%= form.label :train, 'Train' %>
     <%= form.collection_select :train_id, Train.all, :id, :number %>
   </div>
 
+  <% if @carriage.type == 'CoupeCarriage' || @carriage.type == 'EconomyCarriage' %>
   <div class="field">
     <%= form.label :upper_places_amount, 'Upper places amount' %>
     <%= form.text_field :upper_places_amount %>
   </div>
 
+  <% elsif @carriage.type == 'CoupeCarriage' || @carriage.type == 'EconomyCarriage' || @carriage.type == 'SleeperCarriage' %>
   <div class="field">
     <%= form.label :down_places_amount, 'Down places amount' %>
     <%= form.text_field :down_places_amount %>
   </div>
 
+  <% elsif @carriage.type == 'EconomyCarriage' %>
+  <div class="field">
+    <%= form.label :down_places_amount, 'Side down places amount' %>
+    <%= form.text_field :side_down_places_amount %>
+  </div>
+
+  <% elsif @carriage.type == 'EconomyCarriage' %>
+  <div class="field">
+    <%= form.label :down_places_amount, 'Side upper places amount' %>
+    <%= form.text_field :side_upper_places_amount %>
+  </div>
+
+  <% elsif @carriage.type == 'SeaterCarriage' %>
+  <div class="field">
+    <%= form.label :down_places_amount, 'Seating places amount' %>
+    <%= form.text_field :seating_places_amount %>
+  </div>
+  <% end %>
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -2,7 +2,7 @@
 
 <p>
   <strong>Type:</strong>
-  <%= @carriage.carriage_type %>
+  <%= @carriage.type %>
 </p>
 <p>
   <strong>Pinned to the train:</strong>
@@ -12,15 +12,37 @@
     None
   <% end %>
 </p>
-<p>
-  <strong>Amount of upper places:</strong>
-  <%= @carriage.upper_places_amount %>
-</p>
 
-<p>
+<% if @carriage.type == 'EconomyCarriage' %>
+  <div class="field">
+    <strong>Amount of side upper places:</strong>
+    <%= @carriage.side_upper_places_amount %>
+  </div>
+  <div class="field">
+    <strong>Amount of side down places:</strong>
+    <%= @carriage.side_down_places_amount %>
+  </div>
+<% end %>
+
+<% if @carriage.type == 'CoupeCarriage' || @carriage.type == 'EconomyCarriage' || @carriage.type == 'SleeperCarriage' %>
+<div class="field">
   <strong>Amount of down places:</strong>
   <%= @carriage.down_places_amount %>
-</p>
+</div>
+<% end %>
+
+<% if @carriage.type == 'CoupeCarriage' || @carriage.type == 'EconomyCarriage' %>
+  <div class="field">
+    <strong>Amount of upper places:</strong>
+    <%= @carriage.upper_places_amount %>
+  </div>
+
+<% elsif @carriage.type == 'SeaterCarriage' %>
+  <div class="field">
+    <strong>Amount of Seating places:</strong>
+    <%= @carriage.seating_places_amount %>
+  </div>
+<% end %>
 
 <%= link_to 'Edit', edit_carriage_path(@carriage) %> |
 <%= link_to 'Back', carriages_path %>
