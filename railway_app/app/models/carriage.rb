@@ -8,9 +8,12 @@ class Carriage < ApplicationRecord
   scope :economy, -> { where(type: 'EconomyCarriage') }
   scope :sleeper, -> { where(type: 'SleeperCarriage') }
   scope :seater, -> { where(type: 'SeaterCarriage') }
+
+  default_scope { order(number: :asc) }
+  scope :desc, -> { reorder(number: :desc) }
   protected
 
   def set_number
-    self.number = Train.find_by(id == train_id).carriages.last.number + 1
+    self.number = rand(100)
   end
 end

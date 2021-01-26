@@ -1,4 +1,4 @@
-<%= form_with(model: @carriage, url: carriages_path) do |form| %>
+<%= form_for @carriage.becomes(Carriage) do |form| %>
   <%= render 'common/errors', resource: @carriage %>
   <div class="field">
     <%= form.label :type %>

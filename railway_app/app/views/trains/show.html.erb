@@ -14,11 +14,17 @@
 </p>
 <p>
   <strong>Carriages:</strong>
-  <% @train.carriages.each do |carriage|  %>
+  <% if @train.flag %>
+    <% @train.carriages.each do |carriage|  %>
+        <%= link_to "#{carriage.number}", carriage_path(carriage) %>
+      <% end %>
+  <% else %>
+    <% @train.carriages.desc.each do |carriage|  %>
       <%= link_to "#{carriage.number}", carriage_path(carriage) %>
     <% end %>
+  <% end %>
 </p>
-
+<%= @train.count_places('EconomyCarriage', 'down_places_amount') %>
 <p>
   <strong>Following the route:</strong>
   <% if !@train.route.nil? %>

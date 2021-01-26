@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_25_095642) do
+ActiveRecord::Schema.define(version: 2021_01_26_100128) do
 
   create_table "carriages", force: :cascade do |t|
     t.integer "upper_places_amount", default: 0
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2021_01_25_095642) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "current_station_id"
     t.integer "route_id"
+    t.boolean "flag", default: true
     t.index ["current_station_id"], name: "index_trains_on_current_station_id"
     t.index ["route_id"], name: "index_trains_on_route_id"
   end
