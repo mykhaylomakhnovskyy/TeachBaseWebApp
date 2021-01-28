@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   end
   resources :routes
   resource :search do
-      put :show_ticket
+    patch :buy_ticket
+    get :show_ticket
   end
   get 'welcome/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

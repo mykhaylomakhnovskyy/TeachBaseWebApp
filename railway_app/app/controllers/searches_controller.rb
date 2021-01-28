@@ -1,6 +1,4 @@
 class SearchesController < ApplicationController
-  def index
-  end
 
   def show
     @routes = Route.all
@@ -9,8 +7,8 @@ class SearchesController < ApplicationController
   def create
     @relations = RailwayStationsRoute.all
     @routes = []
-    first_stations = @relations.where("railway_station_id=#{params[:railway_station_id1]}")
-    second_stations = @relations.where("railway_station_id=#{params[:railway_station_id2]}")
+    first_stations = @relations.set_station(params[:railway_station_id1])
+    second_stations = @relations.set_station(params[:railway_station_id2])
     first_stations.each do |first_station|
       second_stations.each do |second_station|
         if first_station.route_id == second_station.route_id &&
@@ -22,8 +20,13 @@ class SearchesController < ApplicationController
     @routes
   end
 
-  def show_ticket
+  def buy_ticket
+  end
 
+  def show_ticket
+    @name = params[:name]
+    @surname = params[:surname]
+    @passport = params[:passport_id]
   end
 
   private
