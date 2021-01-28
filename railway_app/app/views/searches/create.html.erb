@@ -1,0 +1,34 @@
+<%= form_with(model:@route) do |form| %>
+
+  <div class="field">
+    <h2>Routes</h2>
+  </div>
+  <div class="field">
+    <% @routes.each do |route| %>
+      <h3><%= route.first.name %></h3>
+      <h4><%= route.first.railway_stations.asc.first.departure_time(route) %></h4>
+      <h4><%= route.first.railway_stations.asc.last.arrival_time(route) %></h4>
+      <table>
+        <thead>
+        <tr>
+          <th>Train</th>
+          <th colspan="3"></th>
+        </tr>
+        </thead>
+        <tbody>
+          <% route.first.trains.each do |train|%>
+          <tr>
+            <td><p><%= train.number %></p></td>
+            <td>
+              <div class="actions">
+                <%= submit_tag 'Buy ticket' %>
+              </div>
+            </td>
+          </tr>
+          <% end %>
+
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+<% end %>

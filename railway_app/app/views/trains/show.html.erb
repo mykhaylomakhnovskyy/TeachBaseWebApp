@@ -16,11 +16,11 @@
   <strong>Carriages:</strong>
   <% if @train.flag %>
     <% @train.carriages.each do |carriage|  %>
-        <%= link_to "#{carriage.number}", carriage_path(carriage) %>
+        <%= link_to "Carriage ##{carriage.number} ", carriage_path(carriage) %>
       <% end %>
   <% else %>
     <% @train.carriages.desc.each do |carriage|  %>
-      <%= link_to "#{carriage.number}", carriage_path(carriage) %>
+      <%= link_to "Carriage ##{carriage.number} ", carriage_path(carriage) %>
     <% end %>
   <% end %>
 </p>
@@ -33,6 +33,8 @@
     None
   <% end %>
 </p>
+
+<p><%=link_to 'Add a carriage', new_train_carriage_path(@train) %></p>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

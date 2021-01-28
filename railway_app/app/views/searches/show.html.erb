@@ -1,0 +1,14 @@
+<h1>Blablablabla</h1>
+<%= form_with(model:@route) do |form| %>
+  <div class="field">
+    <%= form.label :railway_station_id1, 'Choose start point' %>
+    <%= form.collection_select :railway_station_id1, RailwayStation.all, :id, :title %>
+  </div>
+  <div class="field">
+    <%= form.label :railway_station_id2, 'Choose end point' %>
+    <%= form.collection_select :railway_station_id2, RailwayStation.all, :id, :title %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
