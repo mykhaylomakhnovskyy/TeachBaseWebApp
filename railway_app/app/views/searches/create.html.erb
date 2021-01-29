@@ -5,8 +5,8 @@
   <div class="field">
     <% @routes.each do |route| %>
       <h3><%= route.first.name %></h3>
-      <h4><%= route.first.railway_stations.asc.first.departure_time(route) %></h4>
-      <h4><%= route.first.railway_stations.asc.last.arrival_time(route) %></h4>
+      <h4><%= route.first.railway_stations.asc.first.departure_time(route).strftime("%m-%d %H:%M") %>(departure)</h4>
+      <h4><%= route.first.railway_stations.asc.last.arrival_time(route).strftime("%m-%d %H:%M") %>(arrival)</h4>
       <table>
         <thead>
         <tr>
