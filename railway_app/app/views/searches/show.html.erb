@@ -1,5 +1,4 @@
-<h1>Blablablabla</h1>
-<%= form_with(model:@route) do |form| %>
+<%= form_with(model:@ticket) do |form| %>
   <div class="field">
     <%= form.label :railway_station_id1, 'Choose start point' %>
     <%= form.collection_select :railway_station_id1, RailwayStation.all, :id, :title %>
@@ -10,5 +9,6 @@
   </div>
   <div class="actions">
     <%= submit_tag 'Find' %>
+    <%= link_to 'Find', new_ticket_path %>
   </div>
 <% end %>

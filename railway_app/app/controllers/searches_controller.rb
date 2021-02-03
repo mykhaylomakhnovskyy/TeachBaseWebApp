@@ -1,11 +1,11 @@
 class SearchesController < ApplicationController
 
   def show
-    @routes = Route.all
   end
 
   def create
     @relations = RailwayStationsRoute.all
+    @ticket = Ticket.new
     @routes = []
     first_stations = @relations.set_station(params[:railway_station_id1])
     second_stations = @relations.set_station(params[:railway_station_id2])
@@ -19,16 +19,4 @@ class SearchesController < ApplicationController
     end
     @routes
   end
-
-  def buy_ticket
-  end
-
-  def show_ticket
-    @name = params[:name]
-    @surname = params[:surname]
-    @passport = params[:passport_id]
-  end
-
-  private
-
 end
