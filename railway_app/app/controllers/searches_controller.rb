@@ -1,7 +1,6 @@
 class SearchesController < ApplicationController
 
-  def show
-  end
+  def show; end
 
   def create
     @relations = RailwayStationsRoute.all

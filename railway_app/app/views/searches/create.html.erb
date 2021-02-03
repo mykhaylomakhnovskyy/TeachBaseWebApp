@@ -28,7 +28,6 @@
         <%= hidden_field_tag :train_ids, @train_ids %>
 
         <div class="actions">
-          <%= link_to 'Buy ticket',  new_ticket_path, method: :get , train_id: params[:train_id] %>
           <%= submit_tag 'Buy'%>
         </div>
 

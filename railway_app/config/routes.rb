@@ -9,8 +9,6 @@ Rails.application.routes.draw do
     get :show_ticket
   end
 
-  get '/admin' => "railway_stations#index", :as => :admin_root
-
   namespace :admin do
     resources :trains do
       resources :carriages, shallow: true
@@ -25,4 +23,5 @@ Rails.application.routes.draw do
   get 'welcome/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'searches#show'
+ 
 end
