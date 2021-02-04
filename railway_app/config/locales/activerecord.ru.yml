@@ -1,0 +1,38 @@
+ru:
+  activerecord:
+    attributes:
+      railway_station:
+        title:
+          few: Название
+          many: Названий
+          one: Название
+          other: Названия
+      route:
+        name:
+          few: Название
+          many: Названий
+          one: Название
+          other: Названия
+      ticket:
+        name: Имя
+        surname: Фамилия
+        passport_id: ID Пасспорта
+      train:
+          number: Номер
+          current_station: Текущая станция
+          route: Маршрут
+    models:
+      railway_station:
+        few: Станцию
+        many: Станций
+        one: Станцию
+        other: Станции
+      train: Поезд
+      ticket: Билет
+      route: Маршрут
+      sleeper_carriage: Спальный Вагон
+      seater_carriage: Сидячий Вагон
+      economy_carriage: Вагон эконом-класса
+      coupe_carriage: Купейный Вагон
+      user: Пользователь
+

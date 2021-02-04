@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
 
   resources :tickets, only: %i[create show new index destroy]
 
@@ -19,9 +21,8 @@ Rails.application.routes.draw do
     resources :tickets, only: %i[index show destroy edit]
     resources :routes
   end
-
   get 'welcome/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'searches#show'
- 
+
 end
