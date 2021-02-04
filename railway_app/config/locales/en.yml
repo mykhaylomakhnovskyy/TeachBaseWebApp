@@ -53,5 +53,6 @@ en:
       routes: Routes
       tickets: Tickets
       home: Home
-      log_out: Log In
+      log_in: Log In
+      log_out: Log Out
       trains: Trains
