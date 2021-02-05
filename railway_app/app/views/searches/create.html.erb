@@ -1,12 +1,16 @@
-<%= form_tag buy_ticket_search_path, method: :patch do %>
+<%= form_tag new_ticket_path, method: :get do %>
   <div class="field">
     <h2>Routes</h2>
   </div>
   <div class="field">
-    <% @routes.each do |route| %>
-      <h3><%= route.first.name %></h3>
-      <h4><%= route.first.railway_stations.asc.first.departure_time(route).strftime("%m-%d %H:%M") %>(departure)</h4>
-      <h4><%= route.first.railway_stations.asc.last.arrival_time(route).strftime("%m-%d %H:%M") %>(arrival)</h4>
+    <% @routes.each do |route_association| %>
+      <% @route = route_association.first %>
+      <h3><%= @route.name %></h3>
+      <% @trains = @route.trains %>
+      <% unless @route.railway_stations.asc.first.departure_time(@route).nil? %>
+        <h4><%=  @route.railway_stations.asc.first.departure_time(@route).strftime("%m-%d %H:%M")  %>(departure)</h4>
+        <h4><%= @route.railway_stations.asc.last.arrival_time(@route).strftime("%m-%d %H:%M") %>(arrival)</h4>
+      <% end %>
       <table>
         <thead>
         <tr>
@@ -15,16 +19,17 @@
         </tr>
         </thead>
         <tbody>
-          <% route.first.trains.each do |train|%>
-          <tr>
-            <td><p><%= train.number %></p></td>
-            <td>
-              <div class="actions">
-                <%= submit_tag 'Buy ticket' %>
-              </div>
-            </td>
-          </tr>
-          <% end %>
+
+        <% @trains.each do |train| %>
+          <% @train_ids||=[] %>
+          <% @train_ids << train.id %>
+        <% end %>
+
+        <%= hidden_field_tag :train_ids, @train_ids %>
+
+        <div class="actions">
+          <%= submit_tag 'Buy'%>
+        </div>
 
         </tbody>
       </table>

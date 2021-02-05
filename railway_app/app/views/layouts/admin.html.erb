@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+  <head>
+    <title>RailwayApp - Admin</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %><%= link_to 'List of stations', admin_railway_stations_path%>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= link_to 'Home', welcome_index_path%>
+    <%= link_to 'List of trains', admin_trains_path %>
+    <%= link_to 'List of routes', admin_routes_path %>
+    <%= link_to 'List of tickets', admin_tickets_path %>
+  </head>
+  <body>
+    <p id="notice" class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <% if user_signed_in? %>
+      <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+      <p>Account: <%= current_user.email %></p>
+    <% else %>
+      <%= link_to 'Log in', new_user_session_path %>
+    <% end %>
+    <%= yield %>
+  </body>
+<p>
+  (с) 2021 Misha Makhnovskyy. Study project in
+  <a href = http://www.thinknetica.com >Thinknetica online school</a>
+</p>
+</html>
