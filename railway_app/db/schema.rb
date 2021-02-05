@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_02_083952) do
+ActiveRecord::Schema.define(version: 2021_02_05_092551) do
 
   create_table "carriages", force: :cascade do |t|
     t.integer "upper_places_amount", default: 0
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2021_02_02_083952) do
     t.integer "seating_places_amount"
     t.string "type"
     t.integer "number"
+    t.index ["id", "type"], name: "index_carriages_on_id_and_type"
     t.index ["train_id"], name: "index_carriages_on_train_id"
   end
 

@@ -23,6 +23,8 @@ gem 'pry'
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
 
+gem 'rails_12factor'
+
 gem 'rails-i18n'
 
 gem 'i18n'
