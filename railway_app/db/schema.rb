@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2021_02_05_092551) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "carriages", force: :cascade do |t|
     t.integer "upper_places_amount", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "train_id"
+    t.bigint "train_id"
     t.integer "down_places_amount", default: 0
     t.integer "side_down_places_amount"
     t.integer "side_upper_places_amount"
@@ -47,15 +50,22 @@ ActiveRecord::Schema.define(version: 2021_02_05_092551) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-# Could not dump table "tickets" because of following StandardError
-#   Unknown type 'String' for column 'name'
+  create_table "tickets", force: :cascade do |t|
+    t.bigint "train_id"
+    t.bigint "user_id"
+    t.string "name"
+    t.string "surname"
+    t.string "passport_id"
+    t.index ["train_id"], name: "index_tickets_on_train_id"
+    t.index ["user_id"], name: "index_tickets_on_user_id"
+  end
 
   create_table "trains", force: :cascade do |t|
     t.string "number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "current_station_id"
-    t.integer "route_id"
+    t.bigint "current_station_id"
+    t.bigint "route_id"
     t.boolean "flag", default: true
     t.index ["current_station_id"], name: "index_trains_on_current_station_id"
     t.index ["route_id"], name: "index_trains_on_route_id"
