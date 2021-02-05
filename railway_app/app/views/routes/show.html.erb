@@ -9,11 +9,26 @@
   <strong>Stations:</strong>
 
   <% if !@route.railway_stations.nil? || !@route.railway_stations == [] %>
-  <ul>
-    <% @route.railway_stations.asc(@route.id).each do |station| %>
-    <li><%= station.title %></li>
+  <table>
+    <thead>
+    <tr>
+      <td width="100px">Title</td>
+      <td>Position</td>
+    </tr>
+    </thead>
+    <% @route.railway_stations.asc.each do |station| %>
+    <tr>
+      <td><%= station.title %></td>
+      <td>
+        <%= form_tag update_position_railway_station_path(station), method: :patch do %>
+          <%= number_field_tag :station_position, station.position_in(@route) %>
+          <%= hidden_field_tag :route_id, @route.id %>
+          <%= submit_tag 'Update' %>
+        <% end %>
+      </td>
+    </tr>
     <% end %>
-  </ul>
+  </table>
   <% else %>
     None
   <% end %>

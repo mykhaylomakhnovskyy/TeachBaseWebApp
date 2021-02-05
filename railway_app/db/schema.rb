@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_26_100128) do
+ActiveRecord::Schema.define(version: 2021_01_28_091109) do
 
   create_table "carriages", force: :cascade do |t|
     t.integer "upper_places_amount", default: 0
@@ -35,7 +35,9 @@ ActiveRecord::Schema.define(version: 2021_01_26_100128) do
   create_table "railway_stations_routes", force: :cascade do |t|
     t.integer "railway_station_id"
     t.integer "route_id"
-    t.integer "station_serial_number"
+    t.integer "station_position"
+    t.datetime "arrival_time"
+    t.datetime "departure_time"
   end
 
   create_table "routes", force: :cascade do |t|
