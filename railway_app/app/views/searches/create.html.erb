@@ -11,28 +11,17 @@
         <h4><%=  @route.railway_stations.asc.first.departure_time(@route).strftime("%m-%d %H:%M")  %>(departure)</h4>
         <h4><%= @route.railway_stations.asc.last.arrival_time(@route).strftime("%m-%d %H:%M") %>(arrival)</h4>
       <% end %>
-      <table>
-        <thead>
-        <tr>
-          <th>Train</th>
-          <th colspan="3"></th>
-        </tr>
-        </thead>
-        <tbody>
 
-        <% @trains.each do |train| %>
-          <% @train_ids||=[] %>
-          <% @train_ids << train.id %>
-        <% end %>
+      <% @trains.each do |train| %>
+        <% @train_ids||=[] %>
+        <% @train_ids << train.id %>
+      <% end %>
 
-        <%= hidden_field_tag :train_ids, @train_ids %>
+      <%= hidden_field_tag :train_ids, @train_ids %>
 
-        <div class="actions">
-          <%= submit_tag 'Buy'%>
-        </div>
-
-        </tbody>
-      </table>
+      <div class="actions">
+        <%= submit_tag 'Buy'%>
+      </div>
     <% end %>
   </div>
 <% end %>

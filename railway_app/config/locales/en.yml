@@ -30,4 +30,29 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  common:
+    back: Back
+    show: Show
+    edit: Edit
+    destroy: Delete
+  admin:
+    railway_stations:
+      new:
+        title: New Station
+      edit:
+        title: Edit Station
+      index:
+        title: Title
+        stations: Railway Stations
+        new_station: New railway station
+      show:
+        title: Title
+  layouts:
+    admin:
+      stations: Stations
+      routes: Routes
+      tickets: Tickets
+      home: Home
+      log_in: Log In
+      log_out: Log Out
+      trains: Trains

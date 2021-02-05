@@ -1,0 +1,37 @@
+ru:
+  activerecord:
+    attributes:
+      railway_station:
+        title:
+          few: Title
+          many: Titles
+          one: Title
+          other: Titles
+      route:
+        name:
+          few: Name
+          many: Names
+          one: Name
+          other: Names
+      ticket:
+        name: Name
+        surname: Surname
+        passport_id: Passport ID
+      train:
+          number: Number
+          current_station: Current Station
+          route: Route
+    models:
+      railway_station:
+        few: Railway Station
+        many: Railway Stations
+        one: Railway Station
+        other: Railway Stations
+      train: Train
+      ticket: Ticket
+      route: Route
+      sleeper_carriage: Sleeper Carriage
+      seater_carriage: Seater Carriage
+      economy_carriage: Economy Carriage
+      coupe_carriage: Coupe Carriage
+      user: User

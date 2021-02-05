@@ -1,0 +1,27 @@
+ru:
+  common:
+    back: Назад
+    show: Подробнее
+    edit: Изменить
+    destroy: Удалить
+  admin:
+    railway_stations:
+      new:
+        title: Новая станция
+      edit:
+        title: Изменить станцию
+      index:
+        title: Название
+        stations: Станции
+        new_station: Новая станция
+      show:
+        title: Название
+  layouts:
+    admin:
+      stations: Станции
+      routes: Маршруты
+      tickets: Билеты
+      home: Главная
+      log_out: Выйти
+      log_in: Войти
+      trains: Поезда
