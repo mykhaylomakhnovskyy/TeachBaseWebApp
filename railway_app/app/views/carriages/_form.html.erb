@@ -1,0 +1,27 @@
+<%= form_for(@carriage) do |form| %>
+  <%= render 'common/errors', resource: @carriage %>
+  <div class="field">
+    <%= form.label :carriage_type %>
+    <%= form.text_field :carriage_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :train, 'Train' %>
+    <%= form.collection_select :train_id, Train.all, :id, :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :upper_places_amount, 'Upper places amount' %>
+    <%= form.text_field :upper_places_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :down_places_amount, 'Down places amount' %>
+    <%= form.text_field :down_places_amount %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+<% end %>

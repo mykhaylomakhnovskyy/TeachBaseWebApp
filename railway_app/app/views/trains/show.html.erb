@@ -6,15 +6,49 @@
 </p>
 <p>
   <strong>On the station:</strong>
-  <% unless @train.current_station.nil? %>
+  <% if !@train.current_station.nil? %>
     <%= @train.current_station.title %>
   <% else %>
     None
   <% end %>
 </p>
 <p>
+  <strong>Amount of first_class carriages:</strong>
+  <% total_carriages = 0 %>
+  <% @train.carriages.each do |carriage| %>
+    <% if carriage.carriage_type == 'first_class' %>
+      <% total_carriages += 1 %>
+    <% end %>
+  <% end %>
+  <%= total_carriages %>
+</p>
+<p>
+  <strong>Amount of second_class carriages:</strong>
+  <% total_carriages = 0 %>
+  <% @train.carriages.each do |carriage| %>
+      <% total_carriages += 1 if carriage.carriage_type == 'second_class' %>
+  <% end %>
+  <%= total_carriages %>
+</p>
+<p>
+  <strong>Amount of upper places:</strong>
+  <% total_places = 0 %>
+  <% @train.carriages.each do |carriage| %>
+    <% total_places += carriage.upper_places_amount %>
+  <% end %>
+  <%= total_places %>
+</p>
+<p>
+  <strong>Amount of down places:</strong>
+  <% total_places = 0 %>
+  <% @train.carriages.each do |carriage| %>
+    <% total_places += carriage.down_places_amount %>
+  <% end %>
+  <%= total_places %>
+</p>
+<p>
   <strong>Following the route:</strong>
-  <% unless @train.route.nil? %>
+  <% if !@train.route.nil? %>
     <%= @train.route.name %>
   <% else %>
     None

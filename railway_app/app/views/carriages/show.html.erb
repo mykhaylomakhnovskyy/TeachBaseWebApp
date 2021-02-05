@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @carriage.carriage_type %>
+</p>
+<p>
+  <strong>Pinned to the train:</strong>
+  <% if !@carriage.train.nil? %>
+    <%= @carriage.train.number %>
+  <% else %>
+    None
+  <% end %>
+</p>
+<p>
+  <strong>Amount of upper places:</strong>
+  <%= @carriage.upper_places_amount %>
+</p>
+
+<p>
+  <strong>Amount of down places:</strong>
+  <%= @carriage.down_places_amount %>
+</p>
+
+<%= link_to 'Edit', edit_carriage_path(@carriage) %> |
+<%= link_to 'Back', carriages_path %>

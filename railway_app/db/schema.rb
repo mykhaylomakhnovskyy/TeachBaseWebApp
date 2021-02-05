@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_21_091649) do
+ActiveRecord::Schema.define(version: 2021_01_22_103913) do
+
+  create_table "carriages", force: :cascade do |t|
+    t.string "carriage_type"
+    t.integer "upper_places_amount", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "train_id"
+    t.integer "down_places_amount", default: 0
+    t.index ["train_id"], name: "index_carriages_on_train_id"
+  end
 
   create_table "railway_stations", force: :cascade do |t|
     t.string "title"
