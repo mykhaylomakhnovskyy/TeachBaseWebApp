@@ -4,6 +4,22 @@
   <strong>Number:</strong>
   <%= @train.number %>
 </p>
+<p>
+  <strong>On the station:</strong>
+  <% unless @train.current_station.nil? %>
+    <%= @train.current_station.title %>
+  <% else %>
+    None
+  <% end %>
+</p>
+<p>
+  <strong>Following the route:</strong>
+  <% unless @train.route.nil? %>
+    <%= @train.route.name %>
+  <% else %>
+    None
+  <% end %>
+</p>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

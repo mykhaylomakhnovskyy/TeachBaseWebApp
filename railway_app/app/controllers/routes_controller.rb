@@ -40,11 +40,11 @@ class RoutesController < ApplicationController
 
   private
 
-  def set_train
+  def set_route
     @route = Route.find(params[:id])
   end
 
   def route_params
-    params.require(:route).permit(:name)
+    params.require(:route).permit(:name, railway_station_ids: [])
   end
 end
