@@ -1,0 +1,3 @@
+<p>Hi <%= @user.email %>, you just bought a ticket to the <%= @ticket.train_id %></p>
+<p> To watch this ticket go to: <%= link_to 'this link', @ticket %></p>
+<p> To watch all your tickets go to: <%= link_to 'this link', tickets_url %></p>
